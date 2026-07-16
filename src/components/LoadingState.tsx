@@ -4,9 +4,9 @@ import { copy } from "../lib/copy";
 export function LoadingState({ language }: { language: Language }) {
   const t = copy[language];
   return (
-    <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-14 text-center shadow-sm">
+    <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-14 text-center shadow-sm dark:bg-zinc-900">
       <div className="relative flex h-16 w-16 items-center justify-center">
-        <span className="absolute inline-flex h-full w-full animate-pulse-soft rounded-full bg-sage-200" />
+        <span className="absolute inline-flex h-full w-full animate-pulse-soft rounded-full bg-sage-200 dark:bg-sage-700/50" />
         <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-sage-600 text-white">
           <svg viewBox="0 0 24 24" fill="none" className="h-5 w-5">
             <path
@@ -17,8 +17,8 @@ export function LoadingState({ language }: { language: Language }) {
         </span>
       </div>
       <div>
-        <p className="text-lg font-semibold text-ink-900">{t.loadingTitle}</p>
-        <p className="mt-1 text-sm text-ink-700/70">{t.loadingSubtitle}</p>
+        <p className="text-lg font-semibold text-ink-900 dark:text-zinc-100">{t.loadingTitle}</p>
+        <p className="mt-1 text-sm text-ink-700/70 dark:text-zinc-400">{t.loadingSubtitle}</p>
       </div>
     </div>
   );

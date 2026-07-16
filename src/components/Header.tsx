@@ -1,13 +1,17 @@
 import type { Language } from "../types";
+import type { Theme } from "../lib/useTheme";
 import { copy } from "../lib/copy";
 import { LanguageToggle } from "./LanguageToggle";
+import { ThemeToggle } from "./ThemeToggle";
 
 interface Props {
   language: Language;
   onLanguageChange: (lang: Language) => void;
+  theme: Theme;
+  onToggleTheme: () => void;
 }
 
-export function Header({ language, onLanguageChange }: Props) {
+export function Header({ language, onLanguageChange, theme, onToggleTheme }: Props) {
   const t = copy[language];
   return (
     <header className="flex items-center justify-between px-5 py-5 sm:px-8">
@@ -27,9 +31,14 @@ export function Header({ language, onLanguageChange }: Props) {
             />
           </svg>
         </div>
-        <span className="text-lg font-semibold tracking-tight text-ink-900">{t.appName}</span>
+        <span className="text-lg font-semibold tracking-tight text-ink-900 dark:text-zinc-100">
+          {t.appName}
+        </span>
       </div>
-      <LanguageToggle language={language} onChange={onLanguageChange} />
+      <div className="flex items-center gap-3">
+        <LanguageToggle language={language} onChange={onLanguageChange} />
+        <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+      </div>
     </header>
   );
 }

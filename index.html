@@ -6,6 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="DawaDoc — Upload a photo of a prescription or medicine strip and get a simple explanation in Hindi or English." />
     <title>DawaDoc — Understand your prescription</title>
+    <script>
+      (function () {
+        try {
+          var stored = localStorage.getItem("dawadoc-theme");
+          var isDark = stored ? stored === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+          if (isDark) document.documentElement.classList.add("dark");
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

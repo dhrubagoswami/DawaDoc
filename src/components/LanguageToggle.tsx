@@ -7,7 +7,7 @@ interface Props {
 
 export function LanguageToggle({ language, onChange }: Props) {
   return (
-    <div className="inline-flex items-center rounded-full bg-sage-100 p-1 text-sm font-medium">
+    <div className="inline-flex items-center rounded-full bg-sage-100 p-1 text-sm font-medium dark:bg-zinc-800">
       {(["en", "hi"] as const).map((lang) => (
         <button
           key={lang}
@@ -16,7 +16,7 @@ export function LanguageToggle({ language, onChange }: Props) {
           className={`rounded-full px-4 py-1.5 transition-colors ${
             language === lang
               ? "bg-sage-600 text-white shadow-sm"
-              : "text-sage-700 hover:text-sage-900"
+              : "text-sage-700 hover:text-sage-900 dark:text-zinc-400 dark:hover:text-zinc-100"
           }`}
           aria-pressed={language === lang}
         >

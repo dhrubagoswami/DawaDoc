@@ -1,5 +1,6 @@
 import { useCallback, useState } from "react";
 import type { AnalysisResult, Language } from "../types";
+import type { Theme } from "../lib/useTheme";
 import { copy } from "../lib/copy";
 import { prepareImageFile } from "../lib/image";
 import { analyzeImage } from "../lib/api";
@@ -14,9 +15,11 @@ type Stage = "idle" | "loading" | "result";
 interface Props {
   language: Language;
   onLanguageChange: (lang: Language) => void;
+  theme: Theme;
+  onToggleTheme: () => void;
 }
 
-export function ScanPage({ language, onLanguageChange }: Props) {
+export function ScanPage({ language, onLanguageChange, theme, onToggleTheme }: Props) {
   const [stage, setStage] = useState<Stage>("idle");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [pendingImage, setPendingImage] = useState<{ base64: string; mimeType: string } | null>(null);
@@ -61,21 +64,21 @@ export function ScanPage({ language, onLanguageChange }: Props) {
   }, []);
 
   return (
-    <div className="min-h-screen bg-linear-to-b from-cream-100 via-cream-50 to-sage-50">
-      <Header language={language} onLanguageChange={onLanguageChange} />
+    <div className="min-h-screen bg-linear-to-b from-cream-100 via-cream-50 to-sage-50 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
+      <Header language={language} onLanguageChange={onLanguageChange} theme={theme} onToggleTheme={onToggleTheme} />
 
       <main className="mx-auto flex max-w-3xl flex-col items-center gap-8 px-5 pb-16 pt-6 sm:px-8">
         {stage !== "result" && (
           <div className="flex flex-col items-center gap-3 text-center">
-            <h1 className="max-w-lg text-3xl font-bold leading-tight tracking-tight text-ink-900 sm:text-4xl">
+            <h1 className="max-w-lg text-3xl font-bold leading-tight tracking-tight text-ink-900 dark:text-zinc-100 sm:text-4xl">
               {t.heroTitle}
             </h1>
-            <p className="max-w-md text-base leading-relaxed text-ink-700/80">{t.heroSubtitle}</p>
+            <p className="max-w-md text-base leading-relaxed text-ink-700/80 dark:text-zinc-400">{t.heroSubtitle}</p>
           </div>
         )}
 
         {error && (
-          <div className="w-full max-w-xl rounded-2xl bg-clay-100 px-5 py-3 text-center text-sm font-medium text-clay-600">
+          <div className="w-full max-w-xl rounded-2xl bg-clay-100 px-5 py-3 text-center text-sm font-medium text-clay-600 dark:bg-clay-500/15 dark:text-clay-400">
             {error}
           </div>
         )}
@@ -99,7 +102,7 @@ export function ScanPage({ language, onLanguageChange }: Props) {
         <Disclaimer language={language} />
       </main>
 
-      <footer className="px-5 pb-8 text-center text-xs text-ink-700/50">{t.footerBuiltFor}</footer>
+      <footer className="px-5 pb-8 text-center text-xs text-ink-700/50 dark:text-zinc-500">{t.footerBuiltFor}</footer>
     </div>
   );
 }

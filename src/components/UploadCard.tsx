@@ -42,10 +42,12 @@ export function UploadCard({ language, previewUrl, onFileSelected, onAnalyze, on
             handleFiles(e.dataTransfer.files);
           }}
           className={`flex flex-col items-center gap-5 rounded-3xl border-2 border-dashed p-10 text-center transition-colors sm:p-14 ${
-            isDragging ? "border-sage-500 bg-sage-50" : "border-sage-200 bg-white"
+            isDragging
+              ? "border-sage-500 bg-sage-50 dark:border-sage-400 dark:bg-zinc-800"
+              : "border-sage-200 bg-white dark:border-zinc-700 dark:bg-zinc-900"
           }`}
         >
-          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sage-100 text-sage-600">
+          <div className="flex h-16 w-16 items-center justify-center rounded-full bg-sage-100 text-sage-600 dark:bg-zinc-800 dark:text-sage-400">
             <svg viewBox="0 0 24 24" fill="none" className="h-8 w-8">
               <path
                 d="M4 16.5V18a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-1.5M12 3v13m0-13-4 4m4-4 4 4"
@@ -68,12 +70,12 @@ export function UploadCard({ language, previewUrl, onFileSelected, onAnalyze, on
             <button
               type="button"
               onClick={() => cameraInputRef.current?.click()}
-              className="rounded-full border-2 border-sage-300 bg-white px-6 py-3 text-base font-semibold text-sage-700 transition-colors hover:bg-sage-50"
+              className="rounded-full border-2 border-sage-300 bg-white px-6 py-3 text-base font-semibold text-sage-700 transition-colors hover:bg-sage-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
             >
               {t.cameraCta}
             </button>
           </div>
-          <p className="text-sm text-ink-700/70">{t.dropHint}</p>
+          <p className="text-sm text-ink-700/70 dark:text-zinc-400">{t.dropHint}</p>
 
           <input
             ref={fileInputRef}
@@ -92,7 +94,7 @@ export function UploadCard({ language, previewUrl, onFileSelected, onAnalyze, on
           />
         </div>
       ) : (
-        <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-6 shadow-sm">
+        <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-6 shadow-sm dark:bg-zinc-900">
           <img
             src={previewUrl}
             alt="Selected prescription"
@@ -111,7 +113,7 @@ export function UploadCard({ language, previewUrl, onFileSelected, onAnalyze, on
               type="button"
               onClick={onClear}
               disabled={disabled}
-              className="rounded-full border-2 border-sage-200 bg-white px-6 py-3 text-base font-semibold text-sage-700 transition-colors hover:bg-sage-50 disabled:opacity-60"
+              className="rounded-full border-2 border-sage-200 bg-white px-6 py-3 text-base font-semibold text-sage-700 transition-colors hover:bg-sage-50 disabled:opacity-60 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
             >
               {t.changePhoto}
             </button>
