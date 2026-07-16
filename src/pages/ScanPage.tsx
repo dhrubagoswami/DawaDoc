@@ -1,6 +1,7 @@
 import { useCallback, useState } from "react";
 import type { AnalysisResult, Language } from "../types";
 import type { Theme } from "../lib/useTheme";
+import type { DummyUser } from "../lib/useAuth";
 import { copy } from "../lib/copy";
 import { prepareImageFile } from "../lib/image";
 import { analyzeImage } from "../lib/api";
@@ -17,9 +18,20 @@ interface Props {
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
+  user: DummyUser | null;
+  isSigningIn: boolean;
+  onSignIn: () => void;
 }
 
-export function ScanPage({ language, onLanguageChange, theme, onToggleTheme }: Props) {
+export function ScanPage({
+  language,
+  onLanguageChange,
+  theme,
+  onToggleTheme,
+  user,
+  isSigningIn,
+  onSignIn,
+}: Props) {
   const [stage, setStage] = useState<Stage>("idle");
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [pendingImage, setPendingImage] = useState<{ base64: string; mimeType: string } | null>(null);
@@ -65,7 +77,15 @@ export function ScanPage({ language, onLanguageChange, theme, onToggleTheme }: P
 
   return (
     <div className="min-h-screen bg-linear-to-b from-cream-100 via-cream-50 to-sage-50 dark:from-zinc-950 dark:via-zinc-950 dark:to-zinc-900">
-      <Header language={language} onLanguageChange={onLanguageChange} theme={theme} onToggleTheme={onToggleTheme} />
+      <Header
+        language={language}
+        onLanguageChange={onLanguageChange}
+        theme={theme}
+        onToggleTheme={onToggleTheme}
+        user={user}
+        isSigningIn={isSigningIn}
+        onSignIn={onSignIn}
+      />
 
       <main className="mx-auto flex max-w-3xl flex-col items-center gap-8 px-5 pb-16 pt-6 sm:px-8">
         {stage !== "result" && (

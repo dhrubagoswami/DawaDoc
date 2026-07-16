@@ -1,19 +1,34 @@
 import { useNavigate } from "react-router-dom";
 import type { Language } from "../types";
 import type { Theme } from "../lib/useTheme";
+import type { DummyUser } from "../lib/useAuth";
 import { landingCopy } from "../lib/landingCopy";
+import { authCopy } from "../lib/authCopy";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { AuthNavControl } from "../components/AuthNavControl";
 
 interface Props {
   language: Language;
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
+  user: DummyUser | null;
+  isSigningIn: boolean;
+  onSignIn: () => void;
 }
 
-export function LandingPage({ language, onLanguageChange, theme, onToggleTheme }: Props) {
+export function LandingPage({
+  language,
+  onLanguageChange,
+  theme,
+  onToggleTheme,
+  user,
+  isSigningIn,
+  onSignIn,
+}: Props) {
   const t = landingCopy[language];
+  const auth = authCopy[language];
   const navigate = useNavigate();
   const goToScan = () => navigate("/scan");
 
@@ -27,13 +42,12 @@ export function LandingPage({ language, onLanguageChange, theme, onToggleTheme }
         <div className="flex items-center gap-3">
           <LanguageToggle language={language} onChange={onLanguageChange} />
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
-          <button
-            type="button"
-            onClick={goToScan}
-            className="hidden rounded-full bg-sage-600 px-5 py-2 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-sage-700 sm:inline-flex"
-          >
-            {t.navCta}
-          </button>
+          <div className="hidden sm:block">
+            <AuthNavControl language={language} user={user} isSigningIn={isSigningIn} onSignIn={onSignIn} />
+          </div>
+          <div className="sm:hidden">
+            <AuthNavControl language={language} user={user} isSigningIn={isSigningIn} onSignIn={onSignIn} compact />
+          </div>
         </div>
       </header>
 
@@ -47,14 +61,22 @@ export function LandingPage({ language, onLanguageChange, theme, onToggleTheme }
         </h1>
         <p className="max-w-xl text-lg leading-relaxed text-ink-700/80 dark:text-zinc-400">{t.heroSubtitle}</p>
         <div className="mt-2 flex flex-col items-center gap-3">
-          <button
-            type="button"
-            onClick={goToScan}
-            className="rounded-full bg-sage-600 px-8 py-4 text-lg font-semibold text-white shadow-md transition-transform hover:scale-[1.03] hover:bg-sage-700 active:scale-[0.98]"
-          >
-            {t.heroCta}
-          </button>
+          <div className="flex flex-col items-center gap-3 sm:flex-row">
+            <button
+              type="button"
+              onClick={goToScan}
+              className="rounded-full bg-sage-600 px-8 py-4 text-lg font-semibold text-white shadow-md transition-transform hover:scale-[1.03] hover:bg-sage-700 active:scale-[0.98]"
+            >
+              {t.heroCta}
+            </button>
+            {!user && (
+              <AuthNavControl language={language} user={user} isSigningIn={isSigningIn} onSignIn={onSignIn} />
+            )}
+          </div>
           <p className="text-sm text-ink-700/60 dark:text-zinc-500">{t.heroReassurance}</p>
+          {!user && (
+            <p className="max-w-sm text-xs text-ink-700/50 dark:text-zinc-500">{auth.dummyNotice}</p>
+          )}
         </div>
       </section>
 

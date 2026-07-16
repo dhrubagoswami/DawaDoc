@@ -1,17 +1,22 @@
 import type { Language } from "../types";
 import type { Theme } from "../lib/useTheme";
+import type { DummyUser } from "../lib/useAuth";
 import { copy } from "../lib/copy";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
+import { AuthNavControl } from "./AuthNavControl";
 
 interface Props {
   language: Language;
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
+  user: DummyUser | null;
+  isSigningIn: boolean;
+  onSignIn: () => void;
 }
 
-export function Header({ language, onLanguageChange, theme, onToggleTheme }: Props) {
+export function Header({ language, onLanguageChange, theme, onToggleTheme, user, isSigningIn, onSignIn }: Props) {
   const t = copy[language];
   return (
     <header className="flex items-center justify-between px-5 py-5 sm:px-8">
@@ -38,6 +43,7 @@ export function Header({ language, onLanguageChange, theme, onToggleTheme }: Pro
       <div className="flex items-center gap-3">
         <LanguageToggle language={language} onChange={onLanguageChange} />
         <ThemeToggle theme={theme} onToggle={onToggleTheme} />
+        <AuthNavControl language={language} user={user} isSigningIn={isSigningIn} onSignIn={onSignIn} compact />
       </div>
     </header>
   );
