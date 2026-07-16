@@ -1,0 +1,46 @@
+import type { Language } from "../types";
+
+export const historyCopy = {
+  en: {
+    historyTitle: "History",
+    historyToggle: "History",
+    emptyTitle: "No scans yet",
+    emptySubtitle: "Prescriptions you successfully scan will show up here.",
+    viewEntry: "View",
+    newScan: "New scan",
+    deleteEntry: "Delete",
+    deleteConfirmTitle: "Delete this entry?",
+    deleteConfirmBody: "This will remove it from your history. This can't be undone.",
+    deleteConfirmYes: "Delete",
+    deleteConfirmCancel: "Cancel",
+    clearAll: "Clear all",
+    clearAllConfirmTitle: "Clear all history?",
+    clearAllConfirmBody: "All saved prescriptions and explanations will be removed. This can't be undone.",
+    clearAllConfirmYes: "Clear all",
+    clearAllConfirmCancel: "Cancel",
+    savedNotice: "Saved to your history",
+    today: "Today",
+  },
+  hi: {
+    historyTitle: "इतिहास",
+    historyToggle: "इतिहास",
+    emptyTitle: "अभी तक कोई स्कैन नहीं",
+    emptySubtitle: "जो पर्चियां आप सफलतापूर्वक स्कैन करेंगे वे यहां दिखेंगी।",
+    viewEntry: "देखें",
+    newScan: "नई स्कैन",
+    deleteEntry: "हटाएं",
+    deleteConfirmTitle: "क्या इसे हटाना है?",
+    deleteConfirmBody: "यह आपके इतिहास से हट जाएगा। इसे वापस नहीं लाया जा सकता।",
+    deleteConfirmYes: "हटाएं",
+    deleteConfirmCancel: "रद्द करें",
+    clearAll: "सब हटाएं",
+    clearAllConfirmTitle: "क्या पूरा इतिहास हटाना है?",
+    clearAllConfirmBody: "सभी सेव की गई पर्चियां और जानकारी हट जाएंगी। इसे वापस नहीं लाया जा सकता।",
+    clearAllConfirmYes: "सब हटाएं",
+    clearAllConfirmCancel: "रद्द करें",
+    savedNotice: "आपके इतिहास में सेव हो गया",
+    today: "आज",
+  },
+} as const satisfies Record<Language, Record<string, string>>;
+
+export type HistoryCopy = (typeof historyCopy)[Language];
