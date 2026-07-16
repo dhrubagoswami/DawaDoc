@@ -1,7 +1,7 @@
 import { useCallback, useState } from "react";
 import type { AnalysisResult, Language } from "../types";
 import type { Theme } from "../lib/useTheme";
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 import { copy } from "../lib/copy";
 import { historyCopy } from "../lib/historyCopy";
 import { prepareImageFile } from "../lib/image";
@@ -21,7 +21,7 @@ interface Props {
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
-  user: DummyUser | null;
+  user: AppUser | null;
   isSigningIn: boolean;
   onSignIn: () => void;
 }

@@ -10,7 +10,7 @@ import { ProfilePage } from "./pages/ProfilePage";
 function App() {
   const [language, setLanguage] = useState<Language>("en");
   const { theme, toggleTheme } = useTheme();
-  const { user, isSigningIn, signIn, signOut } = useAuth();
+  const { user, authReady, isSigningIn, signIn, signOut } = useAuth();
 
   return (
     <Routes>
@@ -45,7 +45,7 @@ function App() {
       <Route
         path="/profile"
         element={
-          user ? (
+          !authReady ? null : user ? (
             <ProfilePage
               user={user}
               language={language}

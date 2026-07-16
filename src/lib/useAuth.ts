@@ -1,53 +1,48 @@
 import { useCallback, useEffect, useState } from "react";
+import { onAuthStateChanged, signInWithPopup, signOut as firebaseSignOut } from "firebase/auth";
+import { auth, googleProvider } from "./firebase";
 
-export interface DummyUser {
+export interface AppUser {
   name: string;
   email: string;
   photoURL: string | null;
 }
 
-const STORAGE_KEY = "dawadoc-dummy-user";
-
-const DUMMY_USER: DummyUser = {
-  name: "Priya Sharma",
-  email: "priya.sharma@gmail.com",
-  photoURL: null,
-};
-
-function readStoredUser(): DummyUser | null {
-  if (typeof window === "undefined") return null;
-  try {
-    const raw = window.localStorage.getItem(STORAGE_KEY);
-    return raw ? (JSON.parse(raw) as DummyUser) : null;
-  } catch {
-    return null;
-  }
-}
-
 export function useAuth() {
-  const [user, setUser] = useState<DummyUser | null>(readStoredUser);
+  const [user, setUser] = useState<AppUser | null>(null);
+  const [authReady, setAuthReady] = useState(false);
   const [isSigningIn, setIsSigningIn] = useState(false);
 
   useEffect(() => {
-    if (user) {
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(user));
-    } else {
-      window.localStorage.removeItem(STORAGE_KEY);
-    }
-  }, [user]);
+    const unsubscribe = onAuthStateChanged(auth, (firebaseUser) => {
+      setUser(
+        firebaseUser
+          ? {
+              name: firebaseUser.displayName ?? firebaseUser.email ?? "Account",
+              email: firebaseUser.email ?? "",
+              photoURL: firebaseUser.photoURL,
+            }
+          : null
+      );
+      setAuthReady(true);
+    });
+    return unsubscribe;
+  }, []);
 
-  const signIn = useCallback(() => {
+  const signIn = useCallback(async () => {
     setIsSigningIn(true);
-    // Simulated Google account-picker delay — no real auth wired up yet.
-    window.setTimeout(() => {
-      setUser(DUMMY_USER);
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (err) {
+      console.error("Google sign-in failed:", err);
+    } finally {
       setIsSigningIn(false);
-    }, 700);
+    }
   }, []);
 
   const signOut = useCallback(() => {
-    setUser(null);
+    void firebaseSignOut(auth);
   }, []);
 
-  return { user, isSigningIn, signIn, signOut };
+  return { user, authReady, isSigningIn, signIn, signOut };
 }

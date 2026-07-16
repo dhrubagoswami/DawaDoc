@@ -1,6 +1,6 @@
 import type { Language } from "../types";
 import type { Theme } from "../lib/useTheme";
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 import { copy } from "../lib/copy";
 import { LanguageToggle } from "./LanguageToggle";
 import { ThemeToggle } from "./ThemeToggle";
@@ -11,7 +11,7 @@ interface Props {
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
-  user: DummyUser | null;
+  user: AppUser | null;
   isSigningIn: boolean;
   onSignIn: () => void;
   onOpenHistory?: () => void;

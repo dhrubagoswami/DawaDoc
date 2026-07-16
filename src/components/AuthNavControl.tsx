@@ -1,13 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import type { Language } from "../types";
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 import { authCopy } from "../lib/authCopy";
 import { GoogleSignInButton } from "./GoogleSignInButton";
 import { ProfileAvatarButton } from "./ProfileAvatarButton";
 
 interface Props {
   language: Language;
-  user: DummyUser | null;
+  user: AppUser | null;
   isSigningIn: boolean;
   onSignIn: () => void;
   compact?: boolean;

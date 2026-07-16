@@ -12,7 +12,6 @@ export interface AuthCopy {
   signOutConfirmBody: string;
   signOutConfirmYes: string;
   signOutConfirmCancel: string;
-  dummyNotice: string;
 }
 
 export const authCopy: Record<Language, AuthCopy> = {
@@ -28,7 +27,6 @@ export const authCopy: Record<Language, AuthCopy> = {
     signOutConfirmBody: "You'll need to sign in again to see your profile.",
     signOutConfirmYes: "Sign out",
     signOutConfirmCancel: "Cancel",
-    dummyNotice: "Demo mode — this is a placeholder sign-in, no real Google account is connected yet.",
   },
   hi: {
     signInCta: "Google से साइन इन करें",
@@ -42,6 +40,5 @@ export const authCopy: Record<Language, AuthCopy> = {
     signOutConfirmBody: "प्रोफ़ाइल देखने के लिए आपको दोबारा साइन इन करना होगा।",
     signOutConfirmYes: "साइन आउट करें",
     signOutConfirmCancel: "रद्द करें",
-    dummyNotice: "डेमो मोड — यह एक नमूना साइन-इन है, अभी कोई असली Google खाता नहीं जुड़ा है।",
   },
 };

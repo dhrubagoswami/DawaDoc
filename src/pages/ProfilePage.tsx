@@ -2,14 +2,14 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import type { Language } from "../types";
 import type { Theme } from "../lib/useTheme";
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 import { authCopy } from "../lib/authCopy";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { ConfirmDialog } from "../components/ConfirmDialog";
 
 interface Props {
-  user: DummyUser;
+  user: AppUser;
   language: Language;
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
@@ -57,8 +57,12 @@ export function ProfilePage({ user, language, onLanguageChange, theme, onToggleT
 
         <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
           <div className="flex items-center gap-4">
-            <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-sage-600 text-xl font-semibold text-white">
-              {initials(user.name)}
+            <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-sage-600 text-xl font-semibold text-white">
+              {user.photoURL ? (
+                <img src={user.photoURL} alt="" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+              ) : (
+                initials(user.name)
+              )}
             </span>
             <div>
               <p className="text-lg font-semibold text-ink-900 dark:text-zinc-100">{user.name}</p>
@@ -66,10 +70,6 @@ export function ProfilePage({ user, language, onLanguageChange, theme, onToggleT
             </div>
           </div>
         </div>
-
-        <p className="rounded-2xl bg-sage-50 px-4 py-3 text-xs leading-relaxed text-sage-700 ring-1 ring-sage-100 dark:bg-zinc-900 dark:text-sage-400 dark:ring-zinc-800">
-          {t.dummyNotice}
-        </p>
 
         <div className="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
           <div className="flex items-center justify-between">

@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import type { Language } from "../types";
 import type { Theme } from "../lib/useTheme";
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 import { landingCopy } from "../lib/landingCopy";
-import { authCopy } from "../lib/authCopy";
 import { LanguageToggle } from "../components/LanguageToggle";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { AuthNavControl } from "../components/AuthNavControl";
@@ -13,7 +12,7 @@ interface Props {
   onLanguageChange: (lang: Language) => void;
   theme: Theme;
   onToggleTheme: () => void;
-  user: DummyUser | null;
+  user: AppUser | null;
   isSigningIn: boolean;
   onSignIn: () => void;
 }
@@ -28,7 +27,6 @@ export function LandingPage({
   onSignIn,
 }: Props) {
   const t = landingCopy[language];
-  const auth = authCopy[language];
   const navigate = useNavigate();
   const goToScan = () => navigate("/scan");
 
@@ -74,9 +72,6 @@ export function LandingPage({
             )}
           </div>
           <p className="text-sm text-ink-700/60 dark:text-zinc-500">{t.heroReassurance}</p>
-          {!user && (
-            <p className="max-w-sm text-xs text-ink-700/50 dark:text-zinc-500">{auth.dummyNotice}</p>
-          )}
         </div>
       </section>
 

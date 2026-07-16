@@ -1,4 +1,4 @@
-import type { DummyUser } from "../lib/useAuth";
+import type { AppUser } from "../lib/useAuth";
 
 function initials(name: string): string {
   return name
@@ -9,15 +9,19 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
-export function ProfileAvatarButton({ user, onClick }: { user: DummyUser; onClick: () => void }) {
+export function ProfileAvatarButton({ user, onClick }: { user: AppUser; onClick: () => void }) {
   return (
     <button
       type="button"
       onClick={onClick}
       aria-label={`${user.name} — open profile`}
-      className="flex h-10 w-10 items-center justify-center rounded-full bg-sage-600 text-sm font-semibold text-white shadow-sm ring-2 ring-white transition-transform hover:scale-105 dark:ring-zinc-800"
+      className="flex h-10 w-10 items-center justify-center overflow-hidden rounded-full bg-sage-600 text-sm font-semibold text-white shadow-sm ring-2 ring-white transition-transform hover:scale-105 dark:ring-zinc-800"
     >
-      {initials(user.name)}
+      {user.photoURL ? (
+        <img src={user.photoURL} alt="" className="h-full w-full object-cover" referrerPolicy="no-referrer" />
+      ) : (
+        initials(user.name)
+      )}
     </button>
   );
 }
