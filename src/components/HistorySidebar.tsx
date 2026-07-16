@@ -82,7 +82,7 @@ export function HistorySidebar({ language, entries, activeId, onSelect, onDelete
       </div>
 
       {entries.length === 0 ? (
-        <div className="rounded-2xl bg-white/60 p-5 text-center dark:bg-zinc-900/60">
+        <div className="rounded-2xl bg-paper/70 p-5 text-center dark:bg-zinc-900/60">
           <p className="text-sm font-medium text-ink-900 dark:text-zinc-200">{t.emptyTitle}</p>
           <p className="mt-1 text-xs leading-relaxed text-ink-700/60 dark:text-zinc-500">{t.emptySubtitle}</p>
         </div>
@@ -103,7 +103,7 @@ export function HistorySidebar({ language, entries, activeId, onSelect, onDelete
                         className={`group flex items-center gap-3 rounded-2xl p-2.5 transition-colors ${
                           activeId === entry.id
                             ? "bg-sage-100 dark:bg-zinc-800"
-                            : "bg-white/60 hover:bg-sage-50 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"
+                            : "bg-paper/70 hover:bg-sage-50 dark:bg-zinc-900/60 dark:hover:bg-zinc-800"
                         }`}
                       >
                         <button

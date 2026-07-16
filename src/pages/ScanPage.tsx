@@ -151,7 +151,7 @@ export function ScanPage({
               type="button"
               onClick={toggleSidebar}
               aria-label={sidebarCollapsed ? "Open history" : "Collapse history"}
-              className="flex h-7 w-7 items-center justify-center rounded-full border border-sage-200 bg-white text-sage-600 shadow-sm transition-colors hover:bg-sage-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
+              className="flex h-7 w-7 items-center justify-center rounded-full border border-sage-200 bg-paper text-sage-600 shadow-sm transition-colors hover:bg-sage-50 dark:border-zinc-700 dark:bg-zinc-900 dark:text-zinc-300 dark:hover:bg-zinc-800"
             >
               <svg viewBox="0 0 24 24" fill="none" className="h-3.5 w-3.5">
                 <path
@@ -215,7 +215,7 @@ export function ScanPage({
                 <button
                   type="button"
                   onClick={handleClear}
-                  className="self-start rounded-full border-2 border-sage-200 bg-white px-4 py-1.5 text-xs font-semibold text-sage-700 transition-colors hover:bg-sage-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+                  className="self-start rounded-full border-2 border-sage-200 bg-paper px-4 py-1.5 text-xs font-semibold text-sage-700 transition-colors hover:bg-sage-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
                 >
                   {th.newScan}
                 </button>

@@ -71,7 +71,7 @@ export function WelcomeTour({ language, open, onClose }: Props) {
         aria-modal="true"
         aria-labelledby="onboarding-title"
         onClick={(e) => e.stopPropagation()}
-        className="w-full max-w-sm overflow-hidden rounded-3xl bg-white shadow-xl dark:bg-zinc-900"
+        className="w-full max-w-sm overflow-hidden rounded-3xl bg-paper shadow-soft-lg ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10"
       >
         <div className="flex flex-col items-center gap-4 px-7 pb-2 pt-8 text-center">
           <span className="flex h-16 w-16 items-center justify-center rounded-full bg-sage-100 text-sage-600 dark:bg-zinc-800 dark:text-sage-400">

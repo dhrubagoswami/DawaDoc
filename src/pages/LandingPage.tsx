@@ -104,9 +104,9 @@ export function LandingPage({
               width={700}
               height={875}
               loading="eager"
-              className="relative aspect-4/5 w-full rounded-[2.5rem] object-cover shadow-xl ring-1 ring-black/5 dark:ring-white/10"
+              className="relative aspect-4/5 w-full rounded-[2.5rem] object-cover shadow-soft-lg ring-1 ring-ink-900/8 dark:ring-white/10"
             />
-            <div className="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-lg dark:bg-zinc-900">
+            <div className="absolute -bottom-5 -left-5 flex items-center gap-2 rounded-2xl bg-paper px-4 py-3 shadow-soft-lg ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10">
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-sage-100 text-sage-600 dark:bg-zinc-800 dark:text-sage-400">
                 <svg viewBox="0 0 24 24" fill="none" className="h-4.5 w-4.5">
                   <path d="M5 13l4 4L19 7" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" />
@@ -127,7 +127,7 @@ export function LandingPage({
           <div className="grid gap-6 sm:grid-cols-3">
             {t.steps.map((step, i) => (
               <Reveal key={step.title} delayMs={i * 100}>
-                <div className="relative flex h-full flex-col gap-3 rounded-3xl bg-white p-7 shadow-sm ring-1 ring-black/5 transition-transform hover:-translate-y-1 dark:bg-zinc-900 dark:ring-white/10">
+                <div className="relative flex h-full flex-col gap-3 rounded-3xl bg-paper p-7 shadow-soft ring-1 ring-ink-900/8 transition-transform hover:-translate-y-1 dark:bg-zinc-900 dark:ring-white/10">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full bg-sage-600 text-base font-bold text-white">
                     {i + 1}
                   </span>
@@ -152,7 +152,7 @@ export function LandingPage({
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {t.features.map((feature, i) => (
               <Reveal key={feature.title} delayMs={i * 60}>
-                <div className="flex h-full flex-col gap-2 rounded-2xl bg-white/70 p-6 ring-1 ring-sage-100 transition-transform hover:-translate-y-1 dark:bg-zinc-900/70 dark:ring-zinc-800">
+                <div className="flex h-full flex-col gap-2 rounded-2xl bg-paper/80 p-6 ring-1 ring-sage-100 transition-transform hover:-translate-y-1 dark:bg-zinc-900/70 dark:ring-zinc-800">
                   <div className="flex h-9 w-9 items-center justify-center rounded-full bg-clay-100 text-clay-600 dark:bg-clay-500/15 dark:text-clay-400">
                     <FeatureDot />
                   </div>
@@ -178,7 +178,7 @@ export function LandingPage({
             {t.signInBenefits.map((benefit) => (
               <div
                 key={benefit.title}
-                className="flex gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10"
+                className="flex gap-4 rounded-2xl bg-paper p-6 shadow-soft ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10"
               >
                 <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-600 dark:bg-zinc-800 dark:text-sage-400">
                   <FeatureDot />

@@ -55,7 +55,7 @@ export function ProfilePage({ user, language, onLanguageChange, theme, onToggleT
       <main className="mx-auto flex max-w-lg flex-col gap-6 px-5 pb-16 sm:px-8">
         <h1 className="text-2xl font-bold tracking-tight text-ink-900 dark:text-zinc-100">{t.profileTitle}</h1>
 
-        <div className="rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+        <div className="rounded-3xl bg-paper p-6 shadow-soft ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10">
           <div className="flex items-center gap-4">
             <span className="flex h-16 w-16 shrink-0 items-center justify-center overflow-hidden rounded-full bg-sage-600 text-xl font-semibold text-white">
               {user.photoURL ? (
@@ -71,7 +71,7 @@ export function ProfilePage({ user, language, onLanguageChange, theme, onToggleT
           </div>
         </div>
 
-        <div className="flex flex-col gap-4 rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10">
+        <div className="flex flex-col gap-4 rounded-3xl bg-paper p-6 shadow-soft ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10">
           <div className="flex items-center justify-between">
             <span className="text-sm font-semibold text-ink-900 dark:text-zinc-100">{t.languageLabel}</span>
             <LanguageToggle language={language} onChange={onLanguageChange} />
@@ -85,7 +85,7 @@ export function ProfilePage({ user, language, onLanguageChange, theme, onToggleT
         <button
           type="button"
           onClick={() => setConfirmOpen(true)}
-          className="rounded-full border-2 border-clay-500/40 bg-white px-6 py-3 text-base font-semibold text-clay-600 transition-colors hover:bg-clay-100/60 dark:bg-zinc-900 dark:hover:bg-clay-500/10"
+          className="rounded-full border-2 border-clay-500/40 bg-paper px-6 py-3 text-base font-semibold text-clay-600 transition-colors hover:bg-clay-100/60 dark:bg-zinc-900 dark:hover:bg-clay-500/10"
         >
           {t.signOut}
         </button>

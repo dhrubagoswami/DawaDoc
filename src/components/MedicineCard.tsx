@@ -35,7 +35,7 @@ export function MedicineCard({ medicine, language, index }: Props) {
 
   return (
     <div
-      className="animate-rise-in rounded-3xl bg-white p-6 shadow-sm ring-1 ring-black/5 sm:p-7 dark:bg-zinc-900 dark:ring-white/10"
+      className="animate-rise-in rounded-3xl bg-paper p-6 shadow-soft ring-1 ring-ink-900/8 sm:p-7 dark:bg-zinc-900 dark:ring-white/10"
       style={{ animationDelay: `${index * 90}ms` }}
     >
       <div className="flex items-start justify-between gap-4">

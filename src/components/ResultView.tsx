@@ -13,7 +13,7 @@ export function ResultView({ result, language, onRetake }: Props) {
 
   if (!result.isReadable || result.medicines.length === 0) {
     return (
-      <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-10 text-center shadow-sm dark:bg-zinc-900">
+      <div className="flex flex-col items-center gap-5 rounded-3xl bg-paper p-10 text-center shadow-soft ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10">
         <div className="flex h-14 w-14 items-center justify-center rounded-full bg-clay-100 text-clay-600 dark:bg-clay-500/15 dark:text-clay-400">
           <svg viewBox="0 0 24 24" fill="none" className="h-7 w-7">
             <circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="1.8" />
@@ -44,7 +44,7 @@ export function ResultView({ result, language, onRetake }: Props) {
         <button
           type="button"
           onClick={onRetake}
-          className="rounded-full border-2 border-sage-200 bg-white px-5 py-2 text-sm font-semibold text-sage-700 transition-colors hover:bg-sage-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
+          className="rounded-full border-2 border-sage-200 bg-paper px-5 py-2 text-sm font-semibold text-sage-700 transition-colors hover:bg-sage-50 dark:border-zinc-600 dark:bg-zinc-800 dark:text-zinc-200 dark:hover:bg-zinc-700"
         >
           {t.retake}
         </button>

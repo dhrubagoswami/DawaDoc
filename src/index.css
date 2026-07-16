@@ -9,6 +9,8 @@
   --color-cream-100: #faf3e8;
   --color-cream-200: #f3e6d1;
 
+  --color-paper: #fffdf8;
+
   --color-sage-50: #f2f7f3;
   --color-sage-100: #e1ede3;
   --color-sage-200: #c4dcc8;
@@ -22,8 +24,11 @@
   --color-clay-500: #d16f43;
   --color-clay-600: #b25634;
 
-  --color-ink-700: #362f2a;
-  --color-ink-900: #1f1a17;
+  --color-ink-700: #3d3630;
+  --color-ink-900: #2b241f;
+
+  --shadow-soft: 0 2px 12px -2px rgb(120 90 60 / 0.09), 0 1px 4px -1px rgb(120 90 60 / 0.06);
+  --shadow-soft-lg: 0 12px 32px -8px rgb(120 90 60 / 0.14), 0 4px 12px -4px rgb(120 90 60 / 0.08);
 }
 
 html {

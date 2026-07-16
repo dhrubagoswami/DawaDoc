@@ -4,7 +4,7 @@ import { copy } from "../lib/copy";
 export function LoadingState({ language }: { language: Language }) {
   const t = copy[language];
   return (
-    <div className="flex flex-col items-center gap-5 rounded-3xl bg-white p-14 text-center shadow-sm dark:bg-zinc-900">
+    <div className="flex flex-col items-center gap-5 rounded-3xl bg-paper p-14 text-center shadow-soft ring-1 ring-ink-900/8 dark:bg-zinc-900 dark:ring-white/10">
       <div className="relative flex h-16 w-16 items-center justify-center">
         <span className="absolute inline-flex h-full w-full animate-pulse-soft rounded-full bg-sage-200 dark:bg-sage-700/50" />
         <span className="relative flex h-10 w-10 items-center justify-center rounded-full bg-sage-600 text-white">
