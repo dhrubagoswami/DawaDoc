@@ -125,6 +125,48 @@ export function LandingPage({
         </div>
       </section>
 
+      {/* Sign-in benefits */}
+      <section className="mx-auto max-w-5xl px-5 pb-20 sm:px-8">
+        <div className="mb-10 text-center">
+          <h2 className="text-2xl font-bold tracking-tight text-ink-900 dark:text-zinc-100 sm:text-3xl">
+            {t.signInBenefitsTitle}
+          </h2>
+          <p className="mt-2 text-base text-ink-700/70 dark:text-zinc-400">{t.signInBenefitsSubtitle}</p>
+        </div>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {t.signInBenefits.map((benefit) => (
+            <div
+              key={benefit.title}
+              className="flex gap-4 rounded-2xl bg-white p-6 shadow-sm ring-1 ring-black/5 dark:bg-zinc-900 dark:ring-white/10"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-sage-100 text-sage-600 dark:bg-zinc-800 dark:text-sage-400">
+                <FeatureDot />
+              </div>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-base font-semibold text-ink-900 dark:text-zinc-100">{benefit.title}</h3>
+                  {benefit.comingSoon && (
+                    <span className="rounded-full bg-clay-100 px-2.5 py-0.5 text-[11px] font-semibold uppercase tracking-wide text-clay-600 dark:bg-clay-500/15 dark:text-clay-400">
+                      {t.comingSoonBadge}
+                    </span>
+                  )}
+                </div>
+                <p className="mt-1 text-sm leading-relaxed text-ink-700/75 dark:text-zinc-400">
+                  {benefit.description}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {!user && (
+          <div className="mt-8 flex flex-col items-center gap-3">
+            <AuthNavControl language={language} user={user} isSigningIn={isSigningIn} onSignIn={onSignIn} />
+            <p className="text-sm text-ink-700/60 dark:text-zinc-500">{t.signInBenefitsGuestNote}</p>
+          </div>
+        )}
+      </section>
+
       {/* Trust */}
       <section className="mx-auto max-w-2xl px-5 pb-20 text-center sm:px-8">
         <div className="rounded-3xl bg-sage-50 p-8 ring-1 ring-sage-100 dark:bg-zinc-900 dark:ring-zinc-800">
