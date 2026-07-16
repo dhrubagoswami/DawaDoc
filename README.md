@@ -47,12 +47,12 @@ aloud if needed.
 
 ```mermaid
 flowchart LR
-    A[📷 Photo of prescription<br/>or medicine strip] --> B[Client-side resize<br/>+ compress]
-    B --> C["/api/analyze<br/>(Vercel serverless function)"]
-    C --> D[Gemini 2.5<br/>vision + reasoning]
-    D --> E[Structured JSON:<br/>medicine, dosage, timing,<br/>side effects, warnings]
-    E --> F[🗂️ Result cards<br/>+ read-aloud]
-    F -.signed in.-> G[(Scan history<br/>saved locally per device)]
+    A[Photo of prescription or medicine strip] --> B[Resize and compress in browser]
+    B --> C[Vercel serverless function]
+    C --> D[Gemini vision and reasoning]
+    D --> E[Structured explanation: dosage, timing, side effects]
+    E --> F[Result cards plus read aloud]
+    F --> G[Scan history, if signed in]
 ```
 
 The Gemini API key never reaches the browser — every analysis request goes through a serverless
