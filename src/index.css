@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", "Noto Sans Devanagari", system-ui, sans-serif;
+
+  --color-cream-50: #fdfbf6;
+  --color-cream-100: #faf3e8;
+  --color-cream-200: #f3e6d1;
+
+  --color-sage-50: #f2f7f3;
+  --color-sage-100: #e1ede3;
+  --color-sage-200: #c4dcc8;
+  --color-sage-400: #7fae87;
+  --color-sage-500: #5c9166;
+  --color-sage-600: #47754f;
+  --color-sage-700: #395e40;
+
+  --color-clay-100: #fbe9e2;
+  --color-clay-400: #e08a63;
+  --color-clay-500: #d16f43;
+  --color-clay-600: #b25634;
+
+  --color-ink-700: #362f2a;
+  --color-ink-900: #1f1a17;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  background: var(--color-cream-50);
+  color: var(--color-ink-900);
+  font-family: var(--font-sans);
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.06); }
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 1.6s ease-in-out infinite;
+}
+
+@keyframes rise-in {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-rise-in {
+  animation: rise-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
