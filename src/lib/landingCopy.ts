@@ -24,6 +24,7 @@ export interface LandingCopy {
   heroSubtitle: string;
   heroCta: string;
   heroReassurance: string;
+  heroCardLabel: string;
   howItWorksTitle: string;
   steps: LandingStep[];
   featuresTitle: string;
@@ -52,6 +53,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       "Snap a photo of a doctor's prescription or a medicine strip. DawaDoc reads it and explains it in plain Hindi or English — what it treats, when to take it, and what to watch out for — so your parents don't have to just trust the pharmacist blindly.",
     heroCta: "Try it now — it's free",
     heroReassurance: "No sign-up needed. Your photo is never stored.",
+    heroCardLabel: "Explained in seconds",
     howItWorksTitle: "Three steps. Under a minute.",
     steps: [
       {
@@ -137,6 +139,7 @@ export const landingCopy: Record<Language, LandingCopy> = {
       "डॉक्टर की पर्ची या दवा की पत्ती की फोटो लें। दवाडॉक उसे पढ़कर आसान हिंदी या अंग्रेज़ी में समझाएगा — यह किस बीमारी के लिए है, कब लेनी है, और किन बातों का ध्यान रखना है — ताकि आपके माता-पिता को सिर्फ़ केमिस्ट पर आँख मूंदकर भरोसा न करना पड़े।",
     heroCta: "अभी आज़माएं — बिल्कुल मुफ़्त",
     heroReassurance: "साइन-अप की ज़रूरत नहीं। आपकी फोटो कभी सेव नहीं की जाती।",
+    heroCardLabel: "सेकंडों में जानकारी",
     howItWorksTitle: "तीन आसान चरण। एक मिनट से भी कम समय में।",
     steps: [
       {

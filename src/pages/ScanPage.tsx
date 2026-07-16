@@ -181,7 +181,7 @@ export function ScanPage({
 
       <main className="mx-auto flex w-full max-w-3xl flex-col items-center gap-8 px-5 pb-16 pt-6 sm:px-8">
           {stage !== "result" && (
-            <div className="flex flex-col items-center gap-3 text-center">
+            <div className="animate-rise-in flex flex-col items-center gap-3 text-center">
               <h1 className="max-w-lg text-3xl font-bold leading-tight tracking-tight text-ink-900 dark:text-zinc-100 sm:text-4xl">
                 {t.heroTitle}
               </h1>
